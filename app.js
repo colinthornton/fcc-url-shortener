@@ -4,21 +4,25 @@ const app = express();
 const testDB = [
   {
     original: "https://www.google.com",
-    route: 0,
-  },
-  {
-    original: "https://www.reddit.com",
     route: 1,
   },
   {
-    original: "https://www.freecodecamp.org",
+    original: "https://www.reddit.com",
     route: 2,
   },
+  {
+    original: "https://www.freecodecamp.org",
+    route: 3,
+  },
 ];
-let nextRoute = 3;
+let nextRoute = 4;
 
 app.get("/", (req, res) => {
-  res.send("Feed me");
+  res.redirect(testDB[0].original);
+});
+
+app.get("/https://:site", (req, res) => {
+  res.send(req.params.site);
 });
 
 app.get("/:query", (req, res) => {
@@ -34,9 +38,16 @@ app.get("/:query", (req, res) => {
       short: `localhost:8080/${nextRoute - 1}`,
     });
   } else {
-    res.json({
-      error: true,
+    let found = testDB.filter((obj) => {
+      return obj.route === Number(req.params.query);
     });
+    if (found.length === 1) {
+      res.redirect(found[0].original);
+    } else {
+      res.json({
+        error: true,
+      });
+    }
   }
 });
 
