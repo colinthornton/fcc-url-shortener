@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/colinthornton/fcc-url-shortener#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mongoose": "^4.13.5"
   }
 }
