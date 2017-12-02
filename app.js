@@ -25,7 +25,7 @@ app.get('/https://:url', (req, res) => {
       if (found) {
         const json = {
           original: found.original,
-          route: `localhost:8080/${found.route.toString(36)}`,
+          route: `https://colin-fcc-url.herokuapp.com/${found.route.toString(36)}`,
         };
         res.json(json);
       }
@@ -48,7 +48,7 @@ app.get('/https://:url', (req, res) => {
           });
           const json = {
             original: newURL.original,
-            route: `localhost:8080/${newURL.route.toString(36)}`,
+            route: `https://colin-fcc-url.herokuapp.com/${newURL.route.toString(36)}`,
           };
           res.json(json);
         });
