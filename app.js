@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const MLAB_URI = process.env.MLAB_URI;
 
+app.use(express.static(__dirname + '/public'));
+
 mongoose.connect(MLAB_URI, { useMongoClient: true });
 
 const urlSchema = mongoose.Schema({
@@ -12,7 +14,7 @@ const urlSchema = mongoose.Schema({
 const Url = mongoose.model('Url', urlSchema);
 
 app.get('/', (req, res) => {
-  res.send('Feed me');
+  res.render('index');
 });
 
 app.get('/https://:url', (req, res) => {

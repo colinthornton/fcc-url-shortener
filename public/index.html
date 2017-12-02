@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <title>Timestamp</title>
+</head>
+<body>
+  <h1>URL Shortener Microservice</h1>
+  <p>Input another website's URL into the address bar such as in the example below.</p>
+  <div class="code-box">
+    <code class="address">https://colin-fcc-url.herokuapp.com/https://google.com</code>
+  </div>
+
+  <p>If it's a valid URL, you'll get a JSON in the following format.</p>
+  <div class="code-box">
+    <code>{</code>
+    <br>
+    <code class="indent">"original": "https://google.com",</code>
+    <br>
+    <code class="indent">"route": "https://colin-fcc-url.herokuapp.com/1"</code>
+    <br>
+    <code>}</code>
+  </div>
+  <p>Visiting the URL specified in the <code>"route"</code> value will redirect
+    you to the original page.</p>
+</body>
+</html>
